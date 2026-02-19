@@ -3,27 +3,27 @@ const ROUNDS = [
     {
         semester: "26-1학기",
         round: "1회차",
-        receiptStart: "2026-02-01",
-        receiptEnd: "2026-02-28",
-        processStart: "2026-03-01",
-        processEnd: "2026-03-02",
+        receiptStart: "2026-02-03",
+        receiptEnd: "2026-12-25",
+        processStart: "2026-12-26",
+        processEnd: "2026-12-27",
         config: {
-            action: "https://docs.google.com/forms/d/e/1FAIpQLSfK1HihTXQy6io9Sr_MuTsDggxhswXdoH8RzogIEx9E3f_CKQ/formResponse",
-            entryName: "entry.1037057905",
-            entryBody: "entry.774341273"
+            action: "https://docs.google.com/forms/d/e/1FAIpQLScsIHRmF0CL0ZrA2zy7RmqK-8Gu9lDcgr8s0i1fc83M2HnRpA/formResponse",
+            entryName: "entry.1137083251",
+            entryBody: "entry.1184900454"
         }
     },
     {
         semester: "26-1학기",
         round: "2회차",
-        receiptStart: "2026-04-01",
-        receiptEnd: "2026-04-30",
-        processStart: "2026-05-01",
-        processEnd: "2026-05-05",
+        receiptStart: "2026-12-28",
+        receiptEnd: "2026-12-29",
+        processStart: "2026-12-30",
+        processEnd: "2026-12-31",
         config: {
-            action: "https://docs.google.com/forms/d/e/FORM_ID_2/formResponse",
-            entryName: "entry.333333333",
-            entryBody: "entry.444444444"
+            action: "https://docs.google.com/forms/d/e/1FAIpQLScPkinnHaQFcwwGLvIHPuNZ8lt89Ghk8RMNceeMLnMOGyvcAQ/formResponse",
+            entryName: "entry.1137083251",
+            entryBody: "entry.1184900454"
         }
     }
 ];
@@ -104,7 +104,16 @@ window.initSinmungo = function (userName) {
                 .catch(() => alert('오류가 발생했습니다.'));
         });
     } else if (status === 'processing') {
-        grid.innerHTML = `<div class="state-msg"><div class="state-num">02</div><div class="state-text"><h2>처리 기간입니다</h2><p>이번 회차 접수가 마감되었습니다.<br>${ko(cur.processStart)} – ${ko(cur.processEnd)} 동안 건의사항을 검토합니다.</p></div></div>${aside}`;
+        const roundNum = pad(cur.round.replace(/[^0-9]/g, ''));
+
+        grid.innerHTML = `
+        <div class="state-msg">
+          <div class="state-num">${roundNum}</div>
+          <div class="state-text">
+            <h2>처리 기간입니다</h2>
+            <p>이번 회차 접수가 마감되었습니다.<br>${ko(cur.processStart)} – ${ko(cur.processEnd)} 동안 건의사항을 검토합니다.</p>
+          </div>
+        </div>${aside}`;
     } else {
         grid.innerHTML = `<div class="state-msg"><div class="state-num">—</div><div class="state-text"><h2>현재 접수 기간이 아닙니다</h2><p>다음 회차 일정을 기다려주세요.</p></div></div>${aside}`;
     }
@@ -114,5 +123,4 @@ if (status === 'open') {
     document.getElementById('authContainer').style.display = 'flex';
 } else {
     window.initSinmungo();
-
 }
