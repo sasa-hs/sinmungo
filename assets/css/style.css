@@ -88,6 +88,25 @@ body {
     border-right: none
 }
 
+@media (max-width: 768px) {
+    .masthead-center .ko {
+        display: none;
+    }
+
+    .masthead-bottom {
+        display: none;
+    }
+
+    .masthead-center h1 {
+        font-size: 2.5rem;
+        margin: 10px 0;
+    }
+
+    .masthead {
+        padding: 15px 0;
+    }
+}
+
 /* ─── page ─── */
 .page {
     max-width: 960px;
@@ -437,4 +456,5 @@ footer p {
         gap: 6px;
         text-align: center
     }
+
 }
