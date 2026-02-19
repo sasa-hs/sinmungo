@@ -2,7 +2,7 @@ const ROUNDS = [
     {
         semester: "26-1학기",
         round: "1회차",
-        receiptStart: "2026-03-03",
+        receiptStart: "2026-02-03",
         receiptEnd: "2026-12-25",
         processStart: "2026-12-26",
         processEnd: "2026-12-27",
@@ -130,3 +130,4 @@ if (status === 'open') {
 } else {
     window.initSinmungo();
 }
+
