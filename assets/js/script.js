@@ -3,9 +3,9 @@ const ROUNDS = [
     {
         semester: "26-1학기",
         round: "1회차",
-        receiptStart: "2026-02-03",
-        receiptEnd: "2026-02-04",
-        processStart: "2026-02-05",
+        receiptStart: "2026-03-03",
+        receiptEnd: "2026-12-25",
+        processStart: "2026-12-26",
         processEnd: "2026-12-27",
         config: {
             action: "https://docs.google.com/forms/d/e/1FAIpQLScsIHRmF0CL0ZrA2zy7RmqK-8Gu9lDcgr8s0i1fc83M2HnRpA/formResponse",
@@ -124,4 +124,5 @@ if (status === 'open') {
 } else {
     window.initSinmungo();
 }
+
 
