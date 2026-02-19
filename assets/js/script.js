@@ -1,4 +1,3 @@
-/* 회차별 설정 */
 const ROUNDS = [
     {
         semester: "26-1학기",
@@ -36,19 +35,26 @@ const ko = s => { const [y, m, d] = s.split('-'); return `${y}년 ${+m}월 ${+d}
 document.getElementById('todayLabel').textContent = `${now.getFullYear()}. ${pad(now.getMonth() + 1)}. ${pad(now.getDate())}`;
 
 let cur = null, status = 'closed';
+
 for (const r of ROUNDS) {
     const rs = pd(r.receiptStart), re = pd(r.receiptEnd), ps = pd(r.processStart), pe = pd(r.processEnd);
     if (now >= rs && now <= re) { cur = r; status = 'open'; break; }
     if (now >= ps && now <= pe) { cur = r; status = 'processing'; break; }
 }
+
+if (!cur) {
+    for (const r of ROUNDS) {
+        if (now < pd(r.receiptStart)) { cur = r; status = 'closed'; break; }
+    }
+}
+
 if (!cur) cur = ROUNDS[ROUNDS.length - 1];
 
-// UI 업데이트 로직
 if (cur) {
     document.getElementById('roundLabel').textContent = cur.semester + ' ' + cur.round;
     document.getElementById('roundMeta').innerHTML = `접수 <strong>${ko(cur.receiptStart)} – ${ko(cur.receiptEnd)}</strong><br>처리 <strong>${ko(cur.processStart)} – ${ko(cur.processEnd)}</strong>`;
     const pill = document.getElementById('statusPill');
-    pill.textContent = status === 'open' ? '접수 중' : (status === 'processing' ? '처리 중' : '종료');
+    pill.textContent = status === 'open' ? '접수 중' : (status === 'processing' ? '처리 중' : '기간 외');
     pill.className = `status-pill s-${status}`;
 }
 
@@ -70,6 +76,8 @@ const aside = `
 const grid = document.getElementById('bodyGrid');
 
 window.initSinmungo = function (userName) {
+    const roundNum = pad(cur.round.replace(/[^0-9]/g, ''));
+
     if (status === 'open') {
         grid.innerHTML = `
         <div class="form-side">
@@ -104,8 +112,6 @@ window.initSinmungo = function (userName) {
                 .catch(() => alert('오류가 발생했습니다.'));
         });
     } else if (status === 'processing') {
-        const roundNum = pad(cur.round.replace(/[^0-9]/g, ''));
-
         grid.innerHTML = `
         <div class="state-msg">
           <div class="state-num">${roundNum}</div>
@@ -124,5 +130,3 @@ if (status === 'open') {
 } else {
     window.initSinmungo();
 }
-
-
