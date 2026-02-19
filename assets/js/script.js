@@ -73,7 +73,7 @@ window.initSinmungo = function (userName) {
     if (status === 'open') {
         grid.innerHTML = `
         <div class="form-side">
-          <p class="section-eyebrow">건의사항 접수 (접수자: ${userName})</p>
+          <p class="section-eyebrow">건의사항 접수</p>
           <h2 class="section-heading">학교 생활의<br><em>불편함을 알려주세요</em></h2>
           <form id="sgForm">
             <div class="field-block">
@@ -114,4 +114,5 @@ if (status === 'open') {
     document.getElementById('authContainer').style.display = 'flex';
 } else {
     window.initSinmungo();
+
 }
