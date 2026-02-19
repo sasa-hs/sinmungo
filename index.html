@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>사사신문고</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <header class="masthead">
+        <div class="masthead-top">
+            <span>세종과학예술영재학교<br>학생자치회</span>
+            <span id="todayLabel">—</span>
+            <span style="text-align: right">SASA<br>SANARAE</span>
+        </div>
+        <div class="masthead-center">
+            <span class="ko">사사</span>
+            <h1>SINMUNGO</h1>
+            <span class="ko">신<br>문<br>고</span>
+        </div>
+        <div class="masthead-bottom">
+            <span>학교 생활 개선</span><span>학생 건의 수렴</span><span>학생 자치 실현</span><span>SASA</span>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="round-strip">
+            <div class="round-tag" id="roundLabel">—</div>
+            <div class="round-meta" id="roundMeta">—</div>
+            <div class="status-pill s-closed" id="statusPill">—</div>
+        </div>
+
+        <div id="authContainer"
+            style="display: none; justify-content: center; padding: 50px 0; border-top: 1px solid #eee;">
+            <div style="text-align: center;">
+                <p style="margin-bottom: 20px; font-family: 'Noto Sans KR'; color: #666;">학교 계정 인증이 필요합니다.</p>
+                <div id="g_id_signin"></div>
+            </div>
+        </div>
+
+        <div class="body-grid" id="bodyGrid"></div>
+    </main>
+
+    <footer>
+        <p>© 2026 Sanarae. All rights reserved.</p>
+        <p>제출 내용은 온라인으로 공유될 수 있습니다</p>
+    </footer>
+
+    <script>
+        const SCHOOL_DOMAIN = "sasa.hs.kr";
+        const CLIENT_ID = "115388448802-6o9lrqmpu0sj8kp1g56j0p2dnqkk4mo2.apps.googleusercontent.com";
+
+        function handleCredentialResponse(response) {
+            const payload = JSON.parse(atob(response.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+
+            if (payload.hd === SCHOOL_DOMAIN) {
+                document.getElementById('authContainer').style.display = 'none';
+                document.getElementById('bodyGrid').style.display = 'grid';
+                if (typeof initSinmungo === "function") initSinmungo(payload.name);
+            } else {
+                alert("학교 계정(@" + SCHOOL_DOMAIN + ")으로 로그인해야 이용 가능합니다.");
+            }
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: CLIENT_ID,
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("g_id_signin"),
+                { theme: "outline", size: "large" }
+            );
+        };
+    </script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
