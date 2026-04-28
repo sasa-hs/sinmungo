@@ -15,10 +15,10 @@ const ROUNDS = [
     {
         semester: "26-1학기",
         round: "2회차",
-        receiptStart: "2026-12-28",
-        receiptEnd: "2026-12-29",
-        processStart: "2026-12-30",
-        processEnd: "2026-12-31",
+        receiptStart: "2026-04-28",
+        receiptEnd: "2026-05-15",
+        processStart: "2026-05-16",
+        processEnd: "2026-06-30",
         config: {
             action: "https://docs.google.com/forms/d/e/1FAIpQLScPkinnHaQFcwwGLvIHPuNZ8lt89Ghk8RMNceeMLnMOGyvcAQ/formResponse",
             entryName: "entry.1137083251",
