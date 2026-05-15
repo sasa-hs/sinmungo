@@ -103,7 +103,9 @@ window.initSinmungo = function (userName) {
         document.getElementById('sgForm').addEventListener('submit', function (e) {
             e.preventDefault();
             if (!ta.value.trim()) { alert('건의 내용을 입력해주세요.'); return; }
-            if (new Date() > pd(cur.receiptEnd)) { alert('접수 기간이 종료되었습니다.'); return; }
+            const receiptEndTime = pd(cur.receiptEnd);
+            receiptEndTime.setHours(23, 59, 59, 999);
+            if (new Date() > receiptEndTime) { alert('접수 기간이 종료되었습니다.'); return; }
 
             fetch(cur.config.action, { method: 'POST', mode: 'no-cors', body: new FormData(this) })
                 .then(() => {
