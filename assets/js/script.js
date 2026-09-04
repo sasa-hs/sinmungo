@@ -1,18 +1,18 @@
 const ROUNDS = [
     {
-        semester: "26-1학기",
+        semester: "26-2학기",
         round: "1회차",
-        receiptStart: "2026-03-07",
-        receiptEnd: "2026-03-15",
-        processStart: "2026-03-16",
-        processEnd: "2026-04-27",
+        receiptStart: "2026-09-04",
+        receiptEnd: "2026-09-20",
+        processStart: "2026-09-21",
+        processEnd: "2026-10-25",
         config: {
             action: "https://docs.google.com/forms/d/e/1FAIpQLScsIHRmF0CL0ZrA2zy7RmqK-8Gu9lDcgr8s0i1fc83M2HnRpA/formResponse",
             entryName: "entry.1137083251",
             entryBody: "entry.1184900454"
         }
     },
-    {
+    /*{
         semester: "26-1학기",
         round: "2회차",
         receiptStart: "2026-04-28",
@@ -24,7 +24,7 @@ const ROUNDS = [
             entryName: "entry.1137083251",
             entryBody: "entry.1184900454"
         }
-    }
+    }*/
 ];
 
 const pad = n => String(n).padStart(2, '0');
