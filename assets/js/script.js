@@ -7,7 +7,7 @@ const ROUNDS = [
         processStart: "2026-09-21",
         processEnd: "2026-10-25",
         config: {
-            action: "https://forms.gle/TU4KDg7vBKTWkW3KA",
+            action: "https://forms.gle/i6KgjcpbEoUc7gCYA",
             entryName: "entry.1137083251",
             entryBody: "entry.1184900454"
         }
