@@ -2,29 +2,29 @@ const ROUNDS = [
     {
         semester: "26-2학기",
         round: "1회차",
-        receiptStart: "2026-09-14",
+        receiptStart: "2026-09-04",
         receiptEnd: "2026-09-20",
         processStart: "2026-09-21",
         processEnd: "2026-10-25",
         config: {
-            action: "https://docs.google.com/forms/d/e/1FAIpQLSfqCrcacOokZPLR8EObpEwxn80R9ER-lal3yCZdquM5-sFIaw/formResponse",
+            action: "https://docs.google.com/forms/d/e/1FAIpQLScsIHRmF0CL0ZrA2zy7RmqK-8Gu9lDcgr8s0i1fc83M2HnRpA/formResponse",
             entryName: "entry.1137083251",
             entryBody: "entry.1184900454"
         }
     },
-    /*{
-        semester: "26-1학기",
+    {
+        semester: "26-2학기",
         round: "2회차",
-        receiptStart: "2026-04-28",
-        receiptEnd: "2026-05-15",
-        processStart: "2026-05-16",
-        processEnd: "2026-06-30",
+        receiptStart: "2026-10-02",
+        receiptEnd: "2026-11-06",
+        processStart: "2026-11-07",
+        processEnd: "2026-12-4",
         config: {
-            action: "https://docs.google.com/forms/d/e/1FAIpQLScPkinnHaQFcwwGLvIHPuNZ8lt89Ghk8RMNceeMLnMOGyvcAQ/formResponse",
+            action: "https://docs.google.com/forms/d/e/1FAIpQLScfNH9pFdBZF_5HL4CaJAtjazO_QT2dHMHWfDNCr0fN_NyVfg/formResponse",
             entryName: "entry.1137083251",
             entryBody: "entry.1184900454"
         }
-    }*/
+    }
 ];
 
 const pad = n => String(n).padStart(2, '0');
