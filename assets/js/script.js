@@ -15,7 +15,7 @@ const ROUNDS = [
     {
         semester: "26-2학기",
         round: "2회차",
-        receiptStart: "2026-10-02",
+        receiptStart: "2026-10-26",
         receiptEnd: "2026-11-06",
         processStart: "2026-11-07",
         processEnd: "2026-12-4",
